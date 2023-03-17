@@ -1,0 +1,1 @@
+This a readme file fOR DIRECTORY 0X00-HELLO_WORLD
