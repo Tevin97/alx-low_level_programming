@@ -10,7 +10,7 @@ int main(void)
 	char alphabetrev[] = "zyxwvutsrqponmlkjihgfedcba";
 	int i;
 
-	for (i = 0; alphabet[i] != '\0'; i++)
+	for (i = 0; alphabetrev[i] != '\0'; i++)
 	{
 	putchar(alphabetrev[i]);
 	}
