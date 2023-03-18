@@ -12,6 +12,6 @@ int main(void)
 	{
 		putchar(alphalower[i]);
 	}
-	putchar(\n);
-	Return(0);
+	putchar("\n");
+	return(0);
 }
