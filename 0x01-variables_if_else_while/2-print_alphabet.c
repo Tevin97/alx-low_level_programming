@@ -1,17 +1,17 @@
 #include<stdio.h>
 /**
  * main - program prints the alphabet in lowercase, followed by a new line.
- * Returns: 0 when run successful
+ * Return: 0 on success
  */
 int main(void)
 {
-	char alphalower[26] = "abcdefghijklmnopqrstuvwxyz";
+	char alphalower[] = "abcdefghijklmnopqrstuvwxyz";
 	int i;
 
-	for (i = 0; i < 26; i++)
+	for (i = 0; alphalower[i] != '\0'; i++)
 	{
 		putchar(alphalower[i]);
 	}
-	putchar("\n");
+	putchar('\n');
 	return(0);
 }
