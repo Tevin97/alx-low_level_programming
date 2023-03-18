@@ -1,4 +1,5 @@
-#include<stdio.h>
+#include <stdio.h>
+
 /**
  * main - program prints the alphabet in lowercase,
  * followed by alphabets in capital.
@@ -6,13 +7,14 @@
  */
 int main(void)
 {
-	char alphalower[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char alphabet[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	int i;
 
-	for (i = 0; alphalower[i] != ; '\0';)
+	for (i = 0; alphabet[i] != '\0'; i++)
 	{
-			putchar(alphalower[i]);
+	putchar(alphabet[i]);
 	}
+
 	putchar('\n');
 	return (0);
 }
