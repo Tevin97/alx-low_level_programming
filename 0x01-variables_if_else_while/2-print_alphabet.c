@@ -13,5 +13,5 @@ int main(void)
 		putchar(alphalower[i]);
 	}
 	putchar('\n');
-	return(0);
+	return (0);
 }
