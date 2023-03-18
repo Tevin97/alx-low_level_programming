@@ -9,7 +9,7 @@ int main(void)
 	char alphalower[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	int i;
 
-	for (i = 0; alphalower[i] != '\0';
+	for (i = 0; alphalower[i] != ; '\0';
 			putchar(alphalower[i]);
 	}
 	putchar('\n');
