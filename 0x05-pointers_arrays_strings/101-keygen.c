@@ -2,36 +2,44 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define MAX_PASSWORD_LENGTH 12
+#define MAX_PASSWORD_LENGTH 10
 
 char *generate_password(void);
 
+/**
+ * main - Entry point
+ *
+ * Return: Always 0
+ */
 int main(void)
 {
-    char *password = generate_password();
-    printf("Password: %s\n", password);
-    free(password);
-    return 0;
+    generate_password();
+    return (0);
 }
 
+/**
+ * generate_password - Generates a random password for crackme 101
+ *
+ * Description: A valid password for crackme 101 must contain only 62 different
+ * characters.
+ *
+ * Return: The generated random password
+ */
 char *generate_password(void)
 {
-    static const char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-?";
-    const size_t charset_size = sizeof(charset) - 1;
-
-    char *password = malloc(MAX_PASSWORD_LENGTH + 1); // Add 1 for null terminator
-    if (!password)
-    {
-        fprintf(stderr, "Error: Failed to allocate memory\n");
-        exit(EXIT_FAILURE);
-    }
+    char *password, *charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    size_t i;
 
     srand(time(NULL));
-    for (size_t i = 0; i < MAX_PASSWORD_LENGTH; i++)
-    {
-        password[i] = charset[rand() % charset_size];
-    }
-    password[MAX_PASSWORD_LENGTH] = '\0'; // Add null terminator
+    password = malloc(MAX_PASSWORD_LENGTH + 1); /* Add 1 for null terminator */
 
-    return password;
+    if (!password)
+        return (NULL);
+
+    for (i = 0; i < MAX_PASSWORD_LENGTH; i++)
+        password[i] = charset[rand() % 62];
+
+    password[MAX_PASSWORD_LENGTH] = '\0';
+    printf("%s", password);
+    return (password);
 }
