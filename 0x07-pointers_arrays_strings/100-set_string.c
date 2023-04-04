@@ -7,9 +7,5 @@
  */
 void set_string(char **s, char *to)
 {
-	free(*s);
-
-	*s = malloc(strlen(to) + 1);
-
-	strcpy(*s, to);
+	*s = to;
 }
