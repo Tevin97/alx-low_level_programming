@@ -8,19 +8,20 @@
  */
 void print_diagsums(int *a, int size)
 {
-	int sum1 = 0;
-	int sum2 = 0;
+	int sum1, sum2, y;
 
-	for (int i = 0; i < size; i++)
+	sum1 = 0;
+	sum2 = 0;
+
+	for (y = 0; y < size; y++)
 	{
-		sum1 = sum1 + a[i * size + i];
+		sum1 = sum1 + a[y * size + y];
 	}
 
-	for (int i = 0; i < size; i++)
+	for (y = size - 1; y >= 0; y--)
 	{
-		sum2 += a[i * size + (size - i - 1)];
+		sum2 += a[y * size + (size - y - 1)];
 	}
 
-	printf("Diagonal 1 sum: %d\n", sum1);
-	printf("Diagonal 2 sum: %d\n", sum2);
+	printf("%d, %d\n", sum1, sum2);
 }
