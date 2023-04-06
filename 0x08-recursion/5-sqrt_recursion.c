@@ -1,10 +1,12 @@
 #include "main.h"
+
+int natural_sqrt_recursion(int n, int j);
+
 /**
  * _sqrt_recursion - returns the natural square root of a number
  * @n: number to calculate root
  * Return: the resulting squareroot
  */
-int natural_sqrt_recursion(int n, int j);
 
 int _sqrt_recursion(int n)
 {
@@ -21,7 +23,7 @@ int _sqrt_recursion(int n)
  * @j: iterator
  * Return: the resulting square root
  */
-int natural_sqrt_recursion(int n int j)
+int natural_sqrt_recursion(int n, int j)
 {
 	if (j * j == n)
 	{
