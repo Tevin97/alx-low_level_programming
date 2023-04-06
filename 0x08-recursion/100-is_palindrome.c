@@ -28,9 +28,9 @@ int _strlen_recursion(char *str)
 
 int compare(char *str, int num1, int num2)
 {
-	if(*(str + num1) == *(str + num2))
+	if (*(str + num1) == *(str + num2))
 	{
-		if(num1 == num2 || num1 == num2 + 1)
+		if (num1 == num2 || num1 == num2 + 1)
 		{
 			return (1);
 		}
@@ -47,7 +47,7 @@ int compare(char *str, int num1, int num2)
 
 int is_palindrome(char *str)
 {
-	if(*str == '\0')
+	if (*str == '\0')
 	{
 		return (1);
 	}
