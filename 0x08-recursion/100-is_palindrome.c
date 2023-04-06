@@ -51,5 +51,5 @@ int is_palindrome(char *str)
 	{
 		return (1);
 	}
-	return (compare(str, 0, _strlen_recursion(str) - 1 ));
+	return (compare(str, 0, _strlen_recursion(str) - 1));
 }
