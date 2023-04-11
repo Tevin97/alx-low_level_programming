@@ -1,11 +1,11 @@
 #include "main.h"
 /**
- * _srlen_recursion - returns the lenght of a string
+ * _strlen_recursion - returns the lenght of a string
  * @str: string input
  * Return: the length of a string
  */
 
-int _strlen_recursion(char *s)
+int _strlen_recursion(char *str)
 {
 	if (*str == '\0')
 	{
@@ -28,9 +28,9 @@ int _strlen_recursion(char *s)
 
 int compare(char *str, int num1, int num2)
 {
-	if(*(str + num1) == *(str + num2))
+	if (*(str + num1) == *(str + num2))
 	{
-		if(num1 == num2 || num1 == num2 + 1)
+		if (num1 == num2 || num1 == num2 + 1)
 		{
 			return (1);
 		}
@@ -47,9 +47,9 @@ int compare(char *str, int num1, int num2)
 
 int is_palindrome(char *str)
 {
-	if(*str == '\0')
+	if (*str == '\0')
 	{
 		return (1);
 	}
-	return (compare(str, 0, _strlen_recursion(str) - 1 ));
+	return (compare(str, 0, _strlen_recursion(str) - 1));
 }
