@@ -42,22 +42,19 @@ int count_words(char *str)
 char **strtow(char *str)
 {
 	char **matrix_arr, *temp_str;
-	int i, k = 0, len = 0, num_words, char_count = 0, start, end;
+	int i, k = 0, len = 0, num_words, char_count = 0, start_pos = -1;
 
-	while (*(str + len))
-	{
-		len++;
-	}
+	while (str[++len])
+		;
 	num_words = count_words(str);
+
 	if (num_words == 0)
-	{
 		return (NULL);
-	}
+
 	matrix_arr = (char **) malloc(sizeof(char *) * (num_words + 1));
+
 	if (matrix_arr == NULL)
-	{
 		return (NULL);
-	}
 
 	for (i = 0; i <= len; i++)
 	{
@@ -65,25 +62,27 @@ char **strtow(char *str)
 		{
 			if (char_count)
 			{
-				end = i;
 				temp_str = (char *) malloc(sizeof(char) * (char_count + 1));
+
 				if (temp_str == NULL)
-				{
 					return (NULL);
-				}
-				while (start < end)
-				{
-					*temp_str++ = str[start++];
-				}
-				*temp_str = '\0';
-				matrix_arr[k] = temp_str - char_count;
-				k++;
+
+				for (int j = 0; j < char_count; j++)
+					temp_str[j] = str[start_pos + 1 + j];
+
+
+				temp_str[char_count] = '\0';
+
+				matrix_arr[k++] = temp_str;
 				char_count = 0;
 			}
 		}
-		else if (char_count++ == 0)
+		else 
 		{
-			start = i;
+			if (char_count == 0)
+				start_pos = i - 1;
+
+			char_count++;
 		}
 	}
 
