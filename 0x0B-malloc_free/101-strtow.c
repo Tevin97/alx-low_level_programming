@@ -15,12 +15,14 @@
 
 char **strtow(char *str)
 {
+	int i, word_count = 0;
+	char **words;
+
 	if (str == NULL || strlen(str) == 0)
 	{
 		return NULL;
 	}
 
-	int word_count = 0;
 	for (int i = 0; i < strlen(str); i++)
 	{
 		if (isspace(str[i]))
@@ -35,15 +37,11 @@ char **strtow(char *str)
 		}
 	}
 
-	char **words = malloc((word_count + 1) * sizeof(char *));
+	words = (char **) malloc((word_count + 1) * sizeof(char *));
 	if (words == NULL)
 	{
 		return (NULL);
 	}
-
-	int word_index = 0;
-	char *start = NULL;
-	int length = 0;
 
 	for (int i = 0; i < strlen(str); i++)
 	{
@@ -51,24 +49,24 @@ char **strtow(char *str)
 		 {
 			 continue;
 		 }
-		 start = &str[i];
-		 length = 0;
+		 char *start = &str[i];
+		 int length = 0;
 		 while (!isspace(str[i]) && str[i] != '\0')
 		 {
 			 i++;
 			 length++;
 		 }
-		 words[word_index] = malloc((length + 1) * sizeof(char));
-		 if (words[word_index] == NULL)
+		 words[word_count] = (char *) malloc((length + 1) * sizeof(char));
+		 if (words[word_count] == NULL)
 		 {
 			 return (NULL);
 		 }
-		 strncpy(words[word_index], start, length);
-		 words[word_index][length] = '\0';
-		 word_index++;
+		 strncpy(words[word_count], start, length);
+		 words[word_count][length] = '\0';
+		 word_count++;
 	}
 
-	words[word_index] = NULL;
+	words[word_count] = NULL;
 
 	return (words);
 }
