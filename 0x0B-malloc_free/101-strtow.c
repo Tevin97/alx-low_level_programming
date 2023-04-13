@@ -42,7 +42,8 @@ int count_words(char *str)
 char **strtow(char *str)
 {
 	char **matrix_arr, *temp_str;
-	int i, k = 0, len = 0, num_words, char_count = 0, start_pos = -1, j;
+	int i, k = 0, len = 0, num_words, char_count = 0, start_pos = -1;
+	size_t j;
 
 	while (str[++len])
 		;
@@ -67,7 +68,7 @@ char **strtow(char *str)
 				if (temp_str == NULL)
 					return (NULL);
 
-				for (int j = 0; j < char_count; j++)
+				for (j = 0; j < char_count; j++)
 					temp_str[j] = str[start_pos + 1 + j];
 
 
