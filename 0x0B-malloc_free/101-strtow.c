@@ -68,7 +68,7 @@ char **strtow(char *str)
 				if (temp_str == NULL)
 					return (NULL);
 
-				for (j = 0; j < char_count; j++)
+				for (j = 0; j < (size_t) char_count; j++)
 					temp_str[j] = str[start_pos + 1 + j];
 
 
