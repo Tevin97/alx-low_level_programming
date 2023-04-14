@@ -38,12 +38,14 @@ char *multiply(char *num1, char *num2)
 	int len2 = strlen(num2);
 	int i, j, carry, product;
 	char *result = malloc(sizeof(char) * (len1 + len2 + 1));
+	char *final_result = NULL;
 
 	if (result == NULL)
 	{
 		print_error();
 	}
 	memset(result, 0, sizeof(char) * (len1 + len2 + 1));
+
 	for (i = len1 - 1; i >= 0; i--)
 	{
 		if (!_isdigit(num1[i]))
@@ -68,7 +70,7 @@ char *multiply(char *num1, char *num2)
 	{
 		i++;
 	}
-	char *final_result = strdup(&result[i]);
+	final_result = strdup(&result[i]);
 
 	free(result);
 	return (final_result);
@@ -85,18 +87,23 @@ char *multiply(char *num1, char *num2)
 
 int main(int argc, char **argv)
 {
+	char *num1, *num2, *result;
+	int len, i = 0;
+
 	if (argc != 3)
 	{
 		print_error();
 	}
-	char *num1 = argv[1], *num2 = argv[2];
-	char *result = multiply(num1, num2);
+	num1 = argv[1];
+	num2 = argv[2];
+	result = multiply(num1, num2);
 
 	if (result == NULL)
 	{
 		print_error();
 	}
-	int len = strlen(result), i = 0;
+	len = strlen(result);
+	i = 0;
 
 	for (; i < len; i++)
 	{
