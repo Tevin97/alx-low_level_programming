@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <ctype.h>
+#include <string.h>
 #include <stdlib.h>
 #include "main.h"
 
@@ -12,27 +12,30 @@
 
 int main(int argc, char *argv[])
 {
-	int i, j;
-	unsigned int sum = 0;
+	int i;
+	unsigned int sum = 0, j;
+	char *c;
 
 	if (argc < 2)
 	{
 		printf("0\n");
-		return (1);
 	}
 	else
 	{
 		for (i = 1; i < argc; i++)
 		{
-			for (j = 0; argv[i][j] != '\0'; j++)
+			c = argv[i];
+
+			for (j = 0; j < strlen(c); j++)
 			{
-				if (!isdigit(argv[i][j]))
+				if (c[j] < 48 || c[j] > 57)
 				{
 					printf("error\n");
 					return (1);
 				}
 			}
-			sum = sum + atoi(argv[i]);
+			sum = sum + atoi(c);
+			c++;
 		}
 		printf("%d\n", sum);
 	}
