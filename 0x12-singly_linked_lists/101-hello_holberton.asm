@@ -1,20 +1,11 @@
-section .data
-	hello db 'Hello, Holberton',0
-	format db '%s\n',0
-
-section .text
-	global main
+global main
+extern printf
 
 main:
-	push rbp
-	mov rbp,rsp
-	sub rsp,16
-	lea rdi,[hello]
-	mov rsi,format
+	mov edi,format
 	xor eax,eax
 	call printf
-	add rsp,16
-	mov rsp,rbp
-	pop rbp
-	xor eax,eax
+	mov eax, 0
 	ret
+
+format: db 'Hello, Holberton', 10, 0
