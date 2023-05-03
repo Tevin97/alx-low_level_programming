@@ -1,5 +1,4 @@
 #include "lists.h"
-#include <stddef.h>
 #include <stdlib.h>
 
 /**
@@ -10,8 +9,8 @@
  */
 size_t free_listint_safe(listint_t **h)
 {
-	size_t count = 0;
 	listint_t *current, *temp;
+	size_t count = 0;
 
 	if (h == NULL || *h == NULL)
 		return (0);
@@ -20,16 +19,14 @@ size_t free_listint_safe(listint_t **h)
 	while (current != NULL)
 	{
 		count++;
-		if (current >= current->next)
-		{
-			free(current);
-			break;
-		}
-
 		temp = current;
 		current = current->next;
 		free(temp);
+
+		if (temp >= current)
+			break;
 	}
+
 	*h = NULL;
 
 	return (count);
