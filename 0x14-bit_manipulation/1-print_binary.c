@@ -5,17 +5,24 @@
  */
 void print_binary(unsigned long int n)
 {
-	unsigned long int mask = 1;
-	unsigned int size = sizeof(unsigned long int) * 8;
+	unsigned long int mask;
+	int i = 0, count = 0;
+	unsigned long int current;
 
-	mask <<= (size - 1);
+	for (mask = n; mask > 0; mask >>= 1)
+		i++;
 
-	while (mask > 0)
+	for (; i >= 0; i--)
 	{
-		if ((n & mask) == 0)
-			_putchar('0');
-		else
+		current = n >> i;
+		if (current & 1)
+		{
 			_putchar('1');
-		mask >>= 1;
+			count++;
+		}
+		else if (count || i == 0)
+			_putchar('0');
 	}
+	if (!count)
+		_putchar('0');
 }
