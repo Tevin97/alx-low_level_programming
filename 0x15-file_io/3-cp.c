@@ -37,8 +37,7 @@ int main(int argc, char **argv)
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n",
 			       	argv[2]), exit(99);
 
-	do
-	{
+	do {
 		rcount = read(fd_from, buffer, BUFFER_SIZE);
 		if (rcount == -1)
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n",
